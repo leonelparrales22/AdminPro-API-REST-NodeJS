@@ -1,0 +1,26 @@
+{
+  "name": "api-rest-adminpro",
+  "version": "1.0.0",
+  "description": "API REST Admin PRO Base de Datos CELULARES - NodeJS MySQL",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leonelparrales22/API-REST-AdminPro.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leonelparrales22/API-REST-AdminPro/issues"
+  },
+  "homepage": "https://github.com/leonelparrales22/API-REST-AdminPro#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mysql": "^2.18.1",
+    "uuid": "^8.2.0"
+  }
+}
