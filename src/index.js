@@ -1,6 +1,7 @@
 const app = require("./config/server");
 
 require("./app/routes/celulares.js")(app);
+require("./app/routes/usuarios")(app);
 
 // Start the server
 
