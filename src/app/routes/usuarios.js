@@ -17,6 +17,10 @@ module.exports = (app) => {
     next();
   });
 
+  app.get("/", function (req, res) {
+    res.json("Try with https://grupo-tech.herokuapp.com/impresora/");
+  });
+  
   app.get("/login", async (req, res) => {
     const cedula_usuario = req.query.cedula_usuario;
     const contrasenia = req.query.contrasenia;
@@ -105,12 +109,8 @@ module.exports = (app) => {
     );
   });
 
-
   app.put("/editar-usuario", (req, res) => {
-    const {
-      cedula_usuario,
-      rol,
-    } = req.body;
+    const { cedula_usuario, rol } = req.body;
     connection.query(
       `UPDATE USUARIOS SET rol='${rol}' WHERE cedula_usuario='${cedula_usuario}'`,
       (err, result) => {
@@ -126,7 +126,4 @@ module.exports = (app) => {
       }
     );
   });
-
-
-
 };
