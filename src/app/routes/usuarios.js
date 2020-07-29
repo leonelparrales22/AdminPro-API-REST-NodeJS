@@ -18,9 +18,9 @@ module.exports = (app) => {
   });
 
   app.get("/", function (req, res) {
-    res.json("Try with https://grupo-tech.herokuapp.com/impresora/");
+    res.json("Try with");
   });
-  
+
   app.get("/login", async (req, res) => {
     const cedula_usuario = req.query.cedula_usuario;
     const contrasenia = req.query.contrasenia;
