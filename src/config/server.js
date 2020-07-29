@@ -5,11 +5,10 @@ const bodyParser = require("body-parser");
 const app = express();
 
 // Settings
-app.set("port", process.env.PORT || 3100);
+app.set("port", process.env.PORT || 3200);
 
 // Middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-
 
 module.exports = app;

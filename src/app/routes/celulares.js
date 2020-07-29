@@ -61,6 +61,23 @@ module.exports = (app) => {
     );
   });
 
+  app.get("/celulares", async (req, res) => {
+    connection.query(
+      `SELECT * FROM CELULARES WHERE stock_celular>0 ORDER BY CELULARES.nombre_celular ASC`,
+      (err, result) => {
+        if (err)
+          return res.status(400).json({
+            ok: false,
+            err,
+          });
+        return res.json({
+          ok: true,
+          result,
+        });
+      }
+    );
+  });
+
   app.post("/insertar-celular", (req, res) => {
     const {
       nombre_celular,

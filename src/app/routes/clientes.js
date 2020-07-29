@@ -60,6 +60,23 @@ module.exports = (app) => {
     );
   });
 
+  app.get("/clientes", async (req, res) => {
+    connection.query(
+      `SELECT * FROM CLIENTES ORDER BY CLIENTES.apellido_cliente ASC`,
+      (err, result) => {
+        if (err)
+          return res.status(400).json({
+            ok: false,
+            err,
+          });
+        return res.json({
+          ok: true,
+          result,
+        });
+      }
+    );
+  });
+
   app.post("/insertar-cliente", (req, res) => {
     const {
       cedula_cliente,
