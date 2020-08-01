@@ -1,8 +1,12 @@
 const dbConnection = require("../../config/dbConnection");
 const { v4: uuidv4 } = require("uuid");
+const serveStatic = require("serve-static");
+const path = require("path");
 
 module.exports = (app) => {
   const connection = dbConnection();
+  app.use("/", serveStatic(path.join(__dirname, "/dist")));
+
   app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header(
@@ -17,9 +21,9 @@ module.exports = (app) => {
     next();
   });
 
-  app.get("/", function (req, res) {
-    res.json("Try with");
-  });
+  // app.get("/", function (req, res) {
+  //   res.(__dirname + "/dist/index.html");
+  // });
 
   app.get("/login", async (req, res) => {
     const cedula_usuario = req.query.cedula_usuario;
